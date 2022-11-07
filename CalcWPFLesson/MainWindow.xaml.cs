@@ -146,7 +146,8 @@ namespace CalcWPFLesson
 
         private void btn_equal_Click(object sender, RoutedEventArgs e)
         {
-
+            //попробовать распарсить сложные выражения
+            
         }
     }
 }
