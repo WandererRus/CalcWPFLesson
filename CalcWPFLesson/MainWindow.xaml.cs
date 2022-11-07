@@ -74,5 +74,17 @@ namespace CalcWPFLesson
         {
             tb_currentResult.Text += "9";
         }
+
+        private void btn_point_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_currentResult.Text.Length != 0)
+            {
+                tb_currentResult.Text += ".";
+            }
+            else
+            {
+                tb_currentResult.Text += "0.";
+            }
+        }
     }
 }
