@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalcWPFLesson"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Калькулятор" Height="400" Width="300" FontSize="20">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -22,7 +22,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <TextBox x:Name="tb_globalResult" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Height="30" Margin="5,10"/>
 
         <TextBox x:Name="tb_currentResult" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Margin="5,10"/>
