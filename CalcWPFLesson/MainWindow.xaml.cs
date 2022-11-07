@@ -77,14 +77,76 @@ namespace CalcWPFLesson
 
         private void btn_point_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_currentResult.Text.Length != 0)
+            if (tb_currentResult.Text.Length != 0 && !tb_currentResult.Text.Contains("."))
             {
                 tb_currentResult.Text += ".";
             }
-            else
+            else if (tb_currentResult.Text.Length == 0)
             {
                 tb_currentResult.Text += "0.";
             }
+        }
+
+        private void btn_currentClear_Click(object sender, RoutedEventArgs e)
+        {
+            tb_currentResult.Text = "";
+        }
+
+        private void btn_globalClear_Click(object sender, RoutedEventArgs e)
+        {
+            tb_currentResult.Text = "";
+            tb_globalResult.Text = "";
+        }
+
+        private void btn_lastCharDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_currentResult.Text.Length != 0)
+                tb_currentResult.Text = tb_currentResult.Text.Substring(0, tb_currentResult.Text.Length - 1);
+        }
+
+        private void btn_divide_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_currentResult.Text.Length != 0 && tb_currentResult.Text[tb_currentResult.Text.Length - 1] != '.')
+            {
+                tb_currentResult.Text += " / ";
+                tb_globalResult.Text += tb_currentResult.Text;
+                tb_currentResult.Text = "";
+            }
+        }
+
+        private void btn_multiple_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_currentResult.Text.Length != 0 && tb_currentResult.Text[tb_currentResult.Text.Length - 1] != '.')
+            {
+                tb_currentResult.Text += " * ";
+                tb_globalResult.Text += tb_currentResult.Text;
+                tb_currentResult.Text = "";
+            }
+        }
+
+        private void btn_sub_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_currentResult.Text.Length != 0 && tb_currentResult.Text[tb_currentResult.Text.Length - 1] != '.')
+            {
+                tb_currentResult.Text += " - ";
+                tb_globalResult.Text += tb_currentResult.Text;
+                tb_currentResult.Text = "";
+            }
+        }
+
+        private void btn_add_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_currentResult.Text.Length != 0 && tb_currentResult.Text[tb_currentResult.Text.Length-1] != '.')
+            {
+                tb_currentResult.Text += " + ";
+                tb_globalResult.Text += tb_currentResult.Text;
+                tb_currentResult.Text = "";
+            }
+        }
+
+        private void btn_equal_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
