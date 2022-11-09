@@ -24,7 +24,7 @@ namespace CalcWPFLesson
         {
             InitializeComponent();
         }
-
+        double firstNumber = 0.0, secondNumber = 0.0;
         private void btn_zero_Click(object sender, RoutedEventArgs e)
         {
             tb_currentResult.Text += "0";
@@ -90,12 +90,15 @@ namespace CalcWPFLesson
         private void btn_currentClear_Click(object sender, RoutedEventArgs e)
         {
             tb_currentResult.Text = "";
+            secondNumber = 0.0;
         }
 
         private void btn_globalClear_Click(object sender, RoutedEventArgs e)
         {
             tb_currentResult.Text = "";
             tb_globalResult.Text = "";
+            secondNumber = 0.0;
+            firstNumber = 0.0;
         }
 
         private void btn_lastCharDelete_Click(object sender, RoutedEventArgs e)
@@ -136,10 +139,27 @@ namespace CalcWPFLesson
 
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_currentResult.Text.Length != 0 && tb_currentResult.Text[tb_currentResult.Text.Length-1] != '.')
+            if (tb_currentResult.Text.Length != 0 && tb_currentResult.Text[tb_currentResult.Text.Length - 1] != '.')
             {
-                tb_currentResult.Text += " + ";
-                tb_globalResult.Text += tb_currentResult.Text;
+                if (firstNumber == 0.0)
+                {
+                    firstNumber = Double.Parse(tb_currentResult.Text);
+                }
+                else
+                {
+                    secondNumber = Double.Parse(tb_currentResult.Text);
+                }
+                if (firstNumber > 0 && secondNumber > 0)
+                {
+                    firstNumber += secondNumber;
+                    tb_globalResult.Text = "";
+                    tb_globalResult.Text += firstNumber + "+";
+                    secondNumber = 0.0;
+                }
+                else 
+                {
+                    tb_globalResult.Text += firstNumber + "+";
+                }
                 tb_currentResult.Text = "";
             }
         }
@@ -148,6 +168,12 @@ namespace CalcWPFLesson
         {
             //попробовать распарсить сложные выражения
             
+        }
+
+
+        static double OperationResult(int n1, int n2, string operation)
+        {
+            return 0.0;
         }
     }
 }
